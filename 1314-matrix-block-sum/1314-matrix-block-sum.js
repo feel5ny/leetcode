@@ -5,7 +5,7 @@
  */
 var matrixBlockSum = function(mat, k) {
     const result = [];
-      const sum = (r, c) => {
+    const sum = (r, c) => {
         let result = 0;
         const _r = [r[0] > 0? r[0]: 0, r[1] > mat.length-1 ? mat.length-1: r[1]];
         const _c = [c[0] > 0? c[0]: 0, c[1] > mat[0].length-1 ? mat[0].length-1: c[1]];
@@ -26,5 +26,5 @@ var matrixBlockSum = function(mat, k) {
       }
 
 
-      return result
+  return result
 };
