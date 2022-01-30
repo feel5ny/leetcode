@@ -3,11 +3,12 @@
  * @return {number}
  */
 var pivotIndex = function(nums) {
-  let { left, right } = { left: 0, right: nums.reduce((acc, cur) => (acc += cur, acc),0) }
+  const prefix = [];
   for(let i = 0; i < nums.length; i++){
-    left += nums[i-1] || 0;
-    right -= nums[i];
-    if(left === right) return i;
+    prefix.push((prefix[i-1] || 0) + nums[i])
+  }
+  for(let j = 0; j < nums.length; j++){
+    if(prefix[prefix.length - 1] - prefix[j] === (prefix[j-1] || 0)) return j;
   }
   return -1;
 };
