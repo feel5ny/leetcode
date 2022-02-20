@@ -5,13 +5,12 @@
  */
 
 const CHANGE_CHANCE_COUNT = 2;
-const isValidCount = (targetDiff, goalDiff) => targetDiff.length === CHANGE_CHANCE_COUNT && goalDiff.length === CHANGE_CHANCE_COUNT;
-const isSameValueWhenSwitched = ([targetFirst, targetLast], [goalFist, goalLast]) => {
+const isValidChangeChanceCount = (targetDiff, goalDiff) => targetDiff.length === CHANGE_CHANCE_COUNT && goalDiff.length === CHANGE_CHANCE_COUNT;
+const isSameElementWhenSwitched = ([targetFirst, targetLast], [goalFist, goalLast]) => {
     return targetFirst === goalLast && targetLast === goalFist
 }
 
 var buddyStrings = function(s, goal) {
-    
     if(s.length !== goal.length) return false;
     if(s === goal) return [...s].some((sWord, sIdx) =>  goal.lastIndexOf(sWord) !== sIdx);
     
@@ -24,5 +23,5 @@ var buddyStrings = function(s, goal) {
       return sList;
     }, [])
 
-    return isValidCount(targetDiff, goalDiff) && isSameValueWhenSwitched(targetDiff, goalDiff);
+    return isValidChangeChanceCount(targetDiff, goalDiff) && isSameElementWhenSwitched(targetDiff, goalDiff);
 }
