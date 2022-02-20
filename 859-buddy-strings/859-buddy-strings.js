@@ -3,18 +3,26 @@
  * @param {string} goal
  * @return {boolean}
  */
+
+const CHANGE_CHANCE_COUNT = 2;
+const isValidCount = (targetDiff, goalDiff) => targetDiff.length === CHANGE_CHANCE_COUNT && goalDiff.length === CHANGE_CHANCE_COUNT;
+const isSameValueWhenSwitched = ([targetFirst, targetLast], [goalFist, goalLast]) => {
+    return targetFirst === goalLast && targetLast === goalFist
+}
+
 var buddyStrings = function(s, goal) {
+    
     if(s.length !== goal.length) return false;
     if(s === goal) return [...s].some((sWord, sIdx) =>  goal.lastIndexOf(sWord) !== sIdx);
     
-    const _goal = [];
-    const _s = [...s].reduce((sList, sWord, idx) => {
+    const goalDiff = [];
+    const targetDiff = [...s].reduce((sList, sWord, idx) => {
       if(sWord !== goal[idx]) {
-        _goal.push(goal[idx]) 
-        sList.push(sWord)
+        goalDiff.push(goal[idx]);
+        sList.push(sWord);
       }
       return sList;
     }, [])
 
-    return _goal.length === 2 && _goal[0] === _s[1] && _goal[1] === _s[0];
+    return isValidCount(targetDiff, goalDiff) && isSameValueWhenSwitched(targetDiff, goalDiff);
 }
