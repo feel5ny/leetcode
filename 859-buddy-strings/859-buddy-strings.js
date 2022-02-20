@@ -4,10 +4,9 @@
  * @return {boolean}
  */
 var buddyStrings = function(s, goal) {
-  if(s.length !== goal.length) return false;
-  if(s === goal){
-      return [...s].some((sWord, sIdx) =>  goal.lastIndexOf(sWord) !== sIdx)   
-  } else {
+    if(s.length !== goal.length) return false;
+    if(s === goal) return [...s].some((sWord, sIdx) =>  goal.lastIndexOf(sWord) !== sIdx);
+    
     const _goal = [];
     const _s = [...s].reduce((sList, sWord, idx) => {
       if(sWord !== goal[idx]) {
@@ -16,8 +15,6 @@ var buddyStrings = function(s, goal) {
       }
       return sList;
     }, [])
-    
-    return _goal.length === 2 && _goal[0] === _s[1] && _goal[1] === _s[0];
 
-  }
+    return _goal.length === 2 && _goal[0] === _s[1] && _goal[1] === _s[0];
 }
