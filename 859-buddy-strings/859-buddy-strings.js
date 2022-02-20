@@ -22,12 +22,12 @@ var buddyStrings = function(s, goal) {
     if(s === goal) return [...s].some((sWord, sIdx) =>  goal.lastIndexOf(sWord) !== sIdx);
     
     const goalDiff = [];
-    const targetDiff = [...s].reduce((sList, sWord, idx) => {
+    const targetDiff = [...s].reduce((sDiff, sWord, idx) => {
       if(sWord !== goal[idx]) {
         goalDiff.push(goal[idx]);
-        sList.push(sWord);
+        sDiff.push(sWord);
       }
-      return sList;
+      return sDiff;
     }, [])
 
     return isValidChangeChanceCount(targetDiff, goalDiff) && isSameElementWhenSwitched(targetDiff, goalDiff);
