@@ -6,10 +6,7 @@
 var buddyStrings = function(s, goal) {
   if(s.length !== goal.length) return false;
   if(s === goal){
- 		return [...s].some((sWord, sIdx) => {
-      console.log(goal.lastIndexOf(sWord), sWord)
-      return goal.lastIndexOf(sWord) !== sIdx;
-    })   
+      return [...s].some((sWord, sIdx) =>  goal.lastIndexOf(sWord) !== sIdx)   
   } else {
     const _goal = [];
     const _s = [...s].reduce((sList, sWord, idx) => {
@@ -19,6 +16,7 @@ var buddyStrings = function(s, goal) {
       }
       return sList;
     }, [])
+    
     return _goal.length === 2 && _goal[0] === _s[1] && _goal[1] === _s[0];
 
   }
