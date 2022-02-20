@@ -6,9 +6,7 @@
 
 const CHANGE_CHANCE_COUNT = 2;
 const isValidChangeChanceCount = (targetDiff, goalDiff) => targetDiff.length === CHANGE_CHANCE_COUNT && goalDiff.length === CHANGE_CHANCE_COUNT;
-const isSameElementWhenSwitched = ([targetFirst, targetLast], [goalFist, goalLast]) => {
-    return targetFirst === goalLast && targetLast === goalFist
-}
+const isSameElementWhenSwitched = ([targetFirst, targetLast], [goalFist, goalLast]) => targetFirst === goalLast && targetLast === goalFist;
 
 /*
 * 글자가 같으면: 선택된 글자가 다른 index에 있는지 확인.
