@@ -3,7 +3,7 @@
  * @return {number[][]}
  */
 var generate = function(numRows) {
-  	const result = [[1]];
+    const result = [[1]];
   
     const recursive = (rowIndex, preRow) => {
       if(rowIndex === numRows) return;
@@ -20,5 +20,5 @@ var generate = function(numRows) {
     }
     
     recursive(1, [1]);
-  	return result;
+    return result;
 };
