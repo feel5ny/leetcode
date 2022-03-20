@@ -7,7 +7,7 @@ var maxProfit = function(prices) {
     let profit = 0;
     prices.forEach(stock => {
         if(stock < min) min = stock;
-        else if(stock - min > profit) profit = stock - min;
+        if(stock - min > profit) profit = stock - min;
     })
     return profit;
 };
